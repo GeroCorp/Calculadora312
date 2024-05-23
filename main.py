@@ -23,11 +23,27 @@ def menu(a: int,b: int)->str:
     """
     clean()
 
-    print("     Menu de opciones\n1- Calcular suma ({0}+{1})\n2- Calcular resta ({0}-{1})\n3- Calcular division ({0}/{1})\n4- Calcular multiplicacion ({0}x{1})\n5- Calcular factorial ({0}!)\n6- Salir".format(a,b))
+    print("     Menu de opciones\n1- Calcular suma ({0}+{1})\n2- Calcular resta ({0}-{1})\n3- Calcular division ({0}/{1})\n4- Calcular multiplicacion ({0}x{1})\n5- Calcular factorial ({0}!)\n0- Salir".format(a,b))
     return input("Ingresar opcion: ")
+def validarNumero (n: int,) ->None:
+    """Valida que el valor ingresado sea un numero
 
-n1 = int( input("Ingresar primer numero: "))
-n2 = int( input("Ingresar segundo numero: "))
+    Args:
+        n (int): Valor a validar
+    """
+    while not n.isdigit():
+        print("Error. No se ha ingresado un numero")
+        n = input("Ingresar numero: ")
+    return int(n)
+def ingresoDeNumero() ->None:
+    """Le pide al usuario ingresar un numero
+    """
+    n = input ("Ingresar un numero: " )
+    return validarNumero(n) 
+
+n1 = ingresoDeNumero()
+n2 = ingresoDeNumero()
+
 
 while True:
     match menu(n1, n2):
@@ -49,7 +65,7 @@ while True:
         case "5":
             factorial(n1, n2)
             
-        case "6":
+        case "0":
             break
 
     pause()
